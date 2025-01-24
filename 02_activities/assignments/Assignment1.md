@@ -107,6 +107,10 @@ Please do not pick the exact same tables that I have already diagrammed. For exa
 - The column names can be found in a few spots (DB Schema window in the bottom right, the Database Structure tab in the main window by expanding each table entry, at the top of the Browse Data tab in the main window)
 
 ***
+**Answer:** I chose *customer* and *customer_purchase* tables where *customer* (4 columns) shares a 1-to-many relationship with *customer_purchase* (7 columns) on customer_id.
+
+<img src="./images/A1-S1.jpg" width="500">
+
 
 ## Section 2:
 You can start this section following *session 2*.
@@ -204,6 +208,12 @@ Link if you encounter a paywall: https://web.archive.org/web/20240422105834/http
 Consider, for example, concepts of fariness, inequality, social structures, marginalization, intersection of technology and society, etc.
 
 
-```
-Your thoughts...
-```
+**My thoughts:** In looking at how ethnicity is often encoded, we can see that data systems often value structures which are easy to store, analyze and interpret even when an accurate representation of the data is highly complex. 
+Typically, ethnicity is encoded as a categorical variable with options such as “Caucasian”, “South Asian”, “East Asian”, etc. But these labels encompass a vast array of subgroups within them, each with their own unique cultural backgrounds and relationships with other subgroups. These labels may then be too general to reveal differences between groups of people. A more nuanced approach may be to encode subdivisions within each category, such that if a person declared themselves as “East Asian”, they may further indicate if they are “Chinese”, “Japanese”, “Korean”, etc. But there is a balancing act of how many subdivisions is the right amount; too many and your population is too finely split to make good generalizations, too few and you include too much variation within each subdivision for it to be useful. The typical approach in deciding what labels to include is to identify ethnicities with large populations, while ethnicities with smaller populations are categorized under the label "Other". This means that dominant groups are more likely to be identified while minority groups are less likely to be identified. 
+
+It also may be the case that only one response is allowable for each person. This assumes that the relationship between people and ethnicity are 1-to-1 even if that may not be the case (i.e. a person may be of mixed background). And even if the data stores a 1-to-many relationship between each person and their ethnicity, categorical responses makes the assumption that each ethnicity contributes equally to how the person identifies.  
+
+My point with this example is that due often to reasons related to practicality, complex data may be (over)simplified. This is necessary to some extent for ease and convenience of storage, analysis, and interpretability. But it can also lead to an over-representation of dominant groups and the loss of accuracy especially in terms of the more subtle differences between groups. 
+
+
+
