@@ -45,17 +45,32 @@ There are several tools online you can use, I'd recommend [Draw.io](https://www.
 
 **HINT:** You do not need to create any data for this prompt. This is a conceptual model only. 
 
+**My answer:**
+
+<img src="./images/A2-S1-1.jpg" width="600">
+
 #### Prompt 2
 We want to create employee shifts, splitting up the day into morning and evening. Add this to the ERD.
+
+**My answer:**
+
+<img src="./images/A2-S1-2.jpg" width="600">
+
 
 #### Prompt 3
 The store wants to keep customer addresses. Propose two architectures for the CUSTOMER_ADDRESS table, one that will retain changes, and another that will overwrite. Which is type 1, which is type 2? 
 
 **HINT:** search type 1 vs type 2 slowly changing dimensions. 
 
-```
-Your answer...
-```
+**My answer:** Note 
+
+Note that:
+- Both architectures for the *customer_address* table has been displayed in the same logical model for convenience. 
+- *customer_address_type1* is the table with 2 columns (*customer_id*, *address*). It shares a 1-to-1 relation with *customer* (3 columns) via *customer_id*. Because the relation is 1-to-1, every time a customer updates their address, their previous address is overwritten, and so, changes are not tracked. 
+- *customer_address_type2* is the table with 3 columns (*date_added*, *customer_id*, *address*). *customer* shares a 1-to-many relationship with this table via *customer_id*. Every time a customer updates their address, a new entry is added with the customer ID (hence the 1-to-many relationship) alongside a new date and new address. This means that previous addresses are not deleted and changes can be tracked overtime. If the store wishes to identify the "active" address, they can query for the most recent address for that customer in the table. Note that technically speaking, it is a good idea to also include a timestamp column in case the customer changes their address multiple times in the same day, but I omitted this for simplicity. 
+
+<img src="./images/A2-S1-3.jpg" width="600">
+
 
 ***
 
@@ -181,6 +196,8 @@ Read: Boykis, V. (2019, October 16). _Neural nets are just people all the way do
 Consider, for example, concepts of labour, bias, LLM proliferation, moderating content, intersection of technology and society, ect. 
 
 
-```
-Your thoughts...
-```
+
+**My thoughts:** The core ethical issues of the article is that because automated technologies are all trained on data that is labeled by humans, all the biases from the people who help construct the training data are subsequently picked up and inherited by the technologies. So if a program is meant to decide whether or not an applicant's resume should be considered for an interview and the training data tends to favour recommending resumes of male applicants due to pre-existing societal biases for hiring men, then the program, which is viewed as "objective" because it is "data-driven" and "doesn't involve people", will perpetuate that bias for recommending male applicants because the reality is that the data  that it is trained on is not objective and involves a lot of humans.
+
+An additional issue is that the vast groups of people who are involved with creating these datasets are often not properly acknowledged in discussions about automated technologies using the data even though such data (and by extension, technologies) would have not been possible without their aid.
+
